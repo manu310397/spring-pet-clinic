@@ -29,7 +29,19 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <scm>
+        <developerConnection>scm:git:git@github.com:manu310397/spring-pet-clinic.git</developerConnection>
+    </scm>
 
 </project>
