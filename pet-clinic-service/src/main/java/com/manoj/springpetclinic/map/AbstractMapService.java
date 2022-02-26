@@ -25,6 +25,7 @@ public abstract class AbstractMapService<T, ID> {
             throw new RuntimeException("Object cannot be null");
         }*/
 
+        map.put(getNextId(), object);
         return object;
     }
 

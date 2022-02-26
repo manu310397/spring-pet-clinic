@@ -1,14 +1,26 @@
 package com.manoj.springpetclinic.controller;
 
+import com.manoj.springpetclinic.OwnerService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/owners")
+//@RequestMapping("/owners")
 @Controller
 public class OwnerController {
 
-    @RequestMapping("/")
-    public String listOwner() {
+    private final OwnerService ownerService;
+
+    public OwnerController(OwnerService ownerService) {
+        this.ownerService = ownerService;
+    }
+
+    @RequestMapping("/owners")
+    public String listOwners(Model model) {
+        System.out.println(ownerService.findAll());
+        model.addAttribute("owners", ownerService.findAll());
         return "owners/index";
     }
+
+
 }
