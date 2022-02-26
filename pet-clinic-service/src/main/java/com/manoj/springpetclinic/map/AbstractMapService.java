@@ -1,8 +1,10 @@
 package com.manoj.springpetclinic.map;
 
+import com.manoj.springpetclinic.model.BaseEntity;
+
 import java.util.*;
 
-public abstract class AbstractMapService<T, ID> {
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
     protected Map<Long, T> map = new HashMap<>();
 
     Set<T> findAll(){
@@ -14,8 +16,7 @@ public abstract class AbstractMapService<T, ID> {
     }
 
     T save(T object){
-
-        /*if(object != null) {
+        if(object != null) {
             if(object.getId() == null){
                 object.setId(getNextId());
             }
@@ -23,9 +24,8 @@ public abstract class AbstractMapService<T, ID> {
             map.put(object.getId(), object);
         } else {
             throw new RuntimeException("Object cannot be null");
-        }*/
+        }
 
-        map.put(getNextId(), object);
         return object;
     }
 
