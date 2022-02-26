@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>List of Vets</title>
 </head>
 <body>
-<!--/*@thymesVar id="vet" type="guru.springframework.sfgpetclinic.model.Vet"*/-->
+<!--/*@thymesVar id="vet" type="com.manoj.springpetclinic.model.Vet"*/-->
 <h2>Veterinarians</h2>
 
 <table id="vets" class="table table-striped">
@@ -16,12 +16,9 @@
     </tr>
     </thead>
     <tbody>
-    <!--<tr th:each="vet : ${vets}">
+    <tr th:each="vet : ${vets}">
         <td th:text="${vet.firstName + ' ' + vet.lastName}"></td>
-        <td><span th:each="specialty : ${vet.specialities}"
-                  th:text="${specialty.description + ' '}" /> <span
-                th:if="${vet?.specialities?.size() == 0}">none</span></td>
-    </tr>-->
+    </tr>
     </tbody>
 </table>
 </body>
