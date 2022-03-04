@@ -12,4 +12,9 @@ public class IndexController {
         model.addAttribute("welcome", "Welcome!");
         return "index";
     }
+
+    @RequestMapping("/oups")
+    public String errorHandler() {
+        return "notimplemented";
+    }
 }
