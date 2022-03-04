@@ -4,10 +4,13 @@ import com.manoj.springpetclinic.OwnerService;
 import com.manoj.springpetclinic.PetTypeService;
 import com.manoj.springpetclinic.VetService;
 import com.manoj.springpetclinic.model.Owner;
+import com.manoj.springpetclinic.model.Pet;
 import com.manoj.springpetclinic.model.PetType;
 import com.manoj.springpetclinic.model.Vet;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -39,6 +42,13 @@ public class DataLoader implements CommandLineRunner {
         owner1.setCity("Miami");
         owner1.setTelephone("1231231234");
 
+        Pet mikesPet = new Pet();
+        mikesPet.setPetType(savedDogPetType);
+        mikesPet.setOwner(owner1);
+        mikesPet.setBirthDate(LocalDate.now());
+        mikesPet.setName("Rosco");
+        owner1.getPets().add(mikesPet);
+
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
@@ -48,6 +58,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.setAddress("123 Brickerel");
         owner2.setCity("Miami");
         owner2.setTelephone("1231231234");
+
+        Pet fionaCat = new Pet();
+        fionaCat.setPetType(savedCatPetType);
+        fionaCat.setOwner(owner2);
+        fionaCat.setBirthDate(LocalDate.now());
+        fionaCat.setName("Meow");
+        owner1.getPets().add(fionaCat);
 
         ownerService.save(owner2);
 
