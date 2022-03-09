@@ -23,6 +23,7 @@ public class PetTypeSDJService implements PetTypeService {
         Set<PetType> petTypes = new HashSet<>();
 
         petTypeRepository.findAll().forEach(petTypes::add);
+
         return petTypes;
     }
 
